@@ -2,9 +2,9 @@ local ArrayField = loadstring(game:HttpGet('https://raw.githubusercontent.com/UI
 local UserInputService = game:GetService("UserInputService")
 
 local Window = ArrayField:CreateWindow({
-   Name = "Central Script Hub",
-   LoadingTitle = "Central Script Hub",
-   LoadingSubtitle = "by berhddb",
+   Name = "Universal Hub",
+   LoadingTitle = "Universal Hub",
+   LoadingSubtitle = "V1.0",
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
@@ -35,11 +35,18 @@ local Window = ArrayField:CreateWindow({
    }
 })
 
+if UserInputService.KeyboardEnabled then
 Window:Prompt({
     Title = 'AVISO!',
-    SubTitle = 'Estes scripts não foram feitos todos pela mesma pessoa!',
-    Content = 'Caso não execute as vezes pode ser o executor.',
+    SubTitle = 'Você é um usuário que usa PC.',
+    Content = 'Caso o script não funcione, use outro executor. (Os scripts que irão aparecer serão somente os que tem suporte com seu dispositivo/PC)',
     Actions = {
+        Close = {
+            Name = 'Fechar Hub',
+            Callback = function()
+                ArrayField:Destroy()
+            end,
+        },
         Accept = {
             Name = 'Ok!',
             Callback = function()
@@ -48,8 +55,36 @@ Window:Prompt({
         }
     }
 })
+end
+
+if UserInputService.TouchEnabled then
+    Window:Prompt({
+    Title = 'AVISO!',
+    SubTitle = 'Você é um usuário que usa Celular.',
+    Content = 'Caso o script não funcione, use outro executor. (Os scripts que irão aparecer serão somente os que tem suporte com seu dispositivo/Celular)',
+    Actions = {
+        Close = {
+            Name = 'Fechar Hub',
+            Callback = function()
+                ArrayField:Destroy()
+            end,
+        }
+    },
+        Accept = {
+            Name = 'Ok!',
+            Callback = function()
+                print('Pressed')
+            end,
+        }
+})
+end
 
 local BloxFruitsTab = Window:CreateTab("Blox Fruits", nil)
+local DoorsTab = Window:CreateTab("Doors", nil)
+local AnimeVanguardTab = Window:CreateTab("Anime Vanguard", nil)
+local FischTab = Window:CreateTab("Fisch", nil)
+local BrookhavenTab = Window:CreateTab("Brookhaven", nil)
+local BloxburgTab = Window:CreateTab("Bloxburg", nil)
 
 if UserInputService.KeyboardEnabled then
 local BloxFruitsSection = BloxFruitsTab:CreateSection("PC",true)
