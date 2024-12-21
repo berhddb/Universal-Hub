@@ -1,4 +1,5 @@
 local ArrayField = loadstring(game:HttpGet('https://raw.githubusercontent.com/UI-Interface/ArrayField/main/Source.lua'))()
+local UserInputService = game:GetService("UserInputService")
 
 local Window = ArrayField:CreateWindow({
    Name = "Central Script Hub",
@@ -37,7 +38,7 @@ local Window = ArrayField:CreateWindow({
 Window:Prompt({
     Title = 'AVISO!',
     SubTitle = 'Estes scripts não foram feitos todos pela mesma pessoa!',
-    Content = 'Caso não execute as vezes pode ser o executor, tente usar outro script e nem todos irão funcionar no mobile ou pc.',
+    Content = 'Caso não execute as vezes pode ser o executor.',
     Actions = {
         Accept = {
             Name = 'Ok!',
@@ -50,6 +51,7 @@ Window:Prompt({
 
 local BloxFruitsTab = Window:CreateTab("Blox Fruits", nil)
 
+if UserInputService.KeyboardEnabled then
 local BloxFruitsSection = BloxFruitsTab:CreateSection("PC",true)
 
 local GOGOHub = BloxFruitsTab:CreateButton({
@@ -61,7 +63,7 @@ local GOGOHub = BloxFruitsTab:CreateButton({
    end,
 })
 
-local  = BloxFruitsTab:CreateButton({
+local Kncrypt = BloxFruitsTab:CreateButton({
    Name = "Kncrypt",
    Interact = 'Execute',
    Callback = function()
@@ -69,10 +71,12 @@ local  = BloxFruitsTab:CreateButton({
    ArrayField:Destroy()
    end,
 })
+end
 
+if UserInputService.TouchEnabled then
 local BloxFruitsSection = BloxFruitsTab:CreateSection("Mobile",true)
 
-local  = BloxFruitsTab:CreateButton({
+local RedzHub = BloxFruitsTab:CreateButton({
    Name = "Redz Hub",
    Interact = 'Execute',
    Callback = function()
@@ -80,3 +84,13 @@ local  = BloxFruitsTab:CreateButton({
    -- ArrayField:Destroy()
    end,
 })
+
+local GOGOHub = BloxFruitsTab:CreateButton({
+   Name = "GOGO Hub",
+   Interact = 'Execute',
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/berhddb/GOGOHub-Dragon-Update/refs/heads/main/README.md"))()
+   ArrayField:Destroy()
+   end,
+})
+end
